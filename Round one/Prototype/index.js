@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', getCryptos);
 async function fetchCrypto() {
     const requestOptions = {
         headers: {
-            'X-CMC_PRO_API_KEY': '',
+            'X-CMC_PRO_API_KEY': '14b6507f-3b1a-4b7f-bd79-184b75775da3',
             'Accept': 'application/json'
         },
         json: true,
@@ -32,7 +32,7 @@ function getCryptos() {
     //         'convert': 'USD'
     //     },
     //     headers: {
-    //         'X-CMC_PRO_API_KEY': ''
+    //         'X-CMC_PRO_API_KEY': '14b6507f-3b1a-4b7f-bd79-184b75775da3'
     //     },
     //     json: true,
     //     gzip: true
@@ -69,7 +69,7 @@ function getCryptos() {
         'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
     );
     request.setRequestHeader(
-        'X-CMC_PRO_API_KEY', ''
+        'X-CMC_PRO_API_KEY', '14b6507f-3b1a-4b7f-bd79-184b75775da3'
     );
     request.setRequestHeader('Accept', 'application/json');
 
