@@ -1,0 +1,22 @@
+{
+  "name": "main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/src/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pynezz/Reddit-Code-Group.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pynezz/Reddit-Code-Group/issues"
+  },
+  "homepage": "https://github.com/pynezz/Reddit-Code-Group#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
