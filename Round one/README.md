@@ -40,3 +40,6 @@ Structure:
 
 - [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
  - [Github repo of public APIs](https://github.com/public-apis/public-apis)
+ - [Data muse api](https://www.datamuse.com/api/)
+
+ 

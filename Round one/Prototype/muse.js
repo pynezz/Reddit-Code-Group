@@ -1,20 +1,33 @@
-const API_URL = 'https://api.datamuse.com/words?ml=ringing+in+the+ears';
+const API_URL = 'https://api.datamuse.com/words?';
+const resultList = document.querySelector('.result-list');
 
-function findWords() {
+function findWords(params, search) {
     let request = new XMLHttpRequest();
-    let params = {
-
-    }
     let res;
-    request.open('GET', API_URL);
+    request.open('GET', `${API_URL}${params}=${search}`);
     request.setRequestHeader('Accept', 'application/json');
     request.send();
     request.onload = () => {
         if (request.status == 200) {
             res = request.response;
         }
-        console.log(res);
+        generateHTML(res);
     }
 }
 
-findWords();
+function generateHTML(json) {
+    const result = JSON.parse(json);
+    const elementDiv = document.createElement('div');
+    elementDiv.classList.add('wordresult');
+
+    result.forEach(element => {
+        const newWordElement = document.createElement('li');
+        newWordElement.classList.add('word-item');
+        newWordElement.innerText = element.word;
+
+        elementDiv.appendChild(newWordElement);
+    });
+    resultList.appendChild(elementDiv);
+}
+
+findWords('sl', 'fish');
