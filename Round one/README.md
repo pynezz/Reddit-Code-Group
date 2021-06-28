@@ -17,17 +17,22 @@ Structure:
 ### Todo: 
 
 #### Preparation stuff 
- - [ ] Find an API
+ - [x] Find an API
+ - [x] Prototype
  - [ ] Find way to host the site (Heroku? Digitalocean?)
 
 #### The actual project
- - [ ] Fetch data from the API
+ - [x] Fetch data from the API
  - [ ] Make the data from the API appear on a website
- - [ ] Choose what to show on the website
+ - [ ] Plan out what to show on the website
  - [ ] Mark up the site with HTML
  - [ ] Styling (css)
- - [ ] Make an input field with a button that picks out elements from an object
  - [ ] Mobile site? Desktop site? Both?
+
+    #### Elements
+    - [ ] Text field to display daily word on top
+    - [ ] Input field to enter a word
+    - [ ] Skeleton to place the result in
 
 
 
