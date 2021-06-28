@@ -2,7 +2,7 @@ const searchCryptos = document.querySelector('.search-cryptos');
 const searchBtn = document.querySelector('.search-button');
 const cryptoList = document.querySelector('.crypto-list');
 
-document.addEventListener('DOMContentLoaded', getCryptos);
+document.addEventListener('DOMContentLoaded', null);
 
 async function fetchCrypto() {
     const requestOptions = {
