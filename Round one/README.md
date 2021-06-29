@@ -17,23 +17,22 @@ Structure:
 ### Todo: 
 
 #### Preparation stuff 
- - [x] Find an API
- - [x] Prototype
- - [ ] Find way to host the site (Heroku? Digitalocean?)
+ - <input type="checkbox" checked /> Find an API
+ - <input type="checkbox" checked /> Prototype
+ - <input type="checkbox" unchecked /> Find way to host the site (Heroku? Digitalocean?)
 
 #### The actual project
- - [x] Fetch data from the API
- - [ ] Make the data from the API appear on a website
- - [ ] Plan out what to show on the website
- - [ ] Mark up the site with HTML
- - [ ] Styling (css)
- - [ ] Mobile site? Desktop site? Both?
+ - <input type="checkbox" checked /> Fetch data from the API
+- <input type="checkbox" unchecked /> Make the data from the API appear on a website
+- <input type="checkbox" unchecked /> Plan out what to show on the website
+- <input type="checkbox" unchecked /> Mark up the site with HTML
+- <input type="checkbox" unchecked /> Styling (css)
+- <input type="checkbox" unchecked /> Mobile site? Desktop site? Both?
 
     #### Elements
-    - [ ] Text field to display daily word on top
-    - [ ] Input field to enter a word
-    - [ ] Skeleton to place the result in
-
+    - <input type="checkbox" unchecked />Text field to display daily word on top
+    - <input type="checkbox" unchecked />Input field to enter a word
+    - <input type="checkbox" unchecked />Skeleton to place the result 
 
 
  ### Useful links
