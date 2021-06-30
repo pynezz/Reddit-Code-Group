@@ -3,6 +3,8 @@ body {
   padding: 0;
 }
 
+
+
 /*--------------TOP CONTAINER----------------*/
 
 .top-container {
@@ -55,4 +57,34 @@ h1 {
   right: 20rem;
   transform: rotate(120deg);
   top: 1rem;
+}
+
+
+/* 
+Nice work! -^ 
+*/
+
+/* Appearance */
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: 0.5px solid #499aa3;
+
+}
+
+.search-word {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: 0.5px solid;
+  color: #499aa3;
+}
+
+.word-item {
+  padding: 0rem 0.5rem;
+  list-style: none;
 }

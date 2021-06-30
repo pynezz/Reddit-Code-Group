@@ -26,7 +26,6 @@ function generateHTML(json) {
         const newWordElement = document.createElement('li');
         newWordElement.classList.add('word-item');
         newWordElement.innerText = element.word;
-
         elementDiv.appendChild(newWordElement);
     });
     resultList.appendChild(elementDiv);
