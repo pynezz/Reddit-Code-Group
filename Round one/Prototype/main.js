@@ -17,13 +17,25 @@ app.get('/', (req, res) => {
 
 app.get('/styles.css', (req, res) => {
     res.sendFile(CSS, {root : __dirname }, (err) => {
-        console.log(err);
+        if (err) console.log(err);
+    });
+})
+
+app.get('/images/feather1.png', (req, res) => {
+    res.sendFile('/images/feather1.png', { root : __dirname }, (err) => {
+        if (err) console.log(err);
+    });
+})
+
+app.get('/images/feather2.png', (req, res) => {
+    res.sendFile('/images/feather2.png', { root : __dirname }, (err) => {
+        if (err) console.log(err);
     });
 })
 
 app.get('/index.js', (req, res) => {
     res.sendFile(INDEXJS, {root : __dirname }, (err) => {
-        console.log(err);
+        if (err) console.log(err);
     });
 })
 

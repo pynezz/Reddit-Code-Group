@@ -1,5 +1,7 @@
 const API_URL = 'https://api.datamuse.com/words?';
 const resultList = document.querySelector('.result-list');
+const inputField = document.querySelector('.input-field');
+const searchButton = document.querySelector('.search-word').addEventListener('click', runAPI);
 
 function findWords(params, search) {
     let request = new XMLHttpRequest();
@@ -30,4 +32,10 @@ function generateHTML(json) {
     resultList.appendChild(elementDiv);
 }
 
-findWords('sl', 'fish');
+function runAPI(event) {
+    //console.log(inputFieldValue)
+    let search = inputField.length;
+
+    findWords('ml', inputField.value);
+}
+
