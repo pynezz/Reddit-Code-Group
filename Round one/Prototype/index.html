@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link 
-        href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" 
-        rel="stylesheet" />
-    <link 
-        rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" 
-        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" 
-        crossorigin="anonymous" />
-    <link 
-        rel="stylesheet" 
-        href="styles.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <title>Word Finder [Prototype]</title>
-</head>
-<body>
-    <header>
+  </head>
+  <body>
+    <div class="top-container">
+      <p class="tc-words p1">Word Of The Day</p>
+      <p class="tc-words p2">word:</p>
+      <p class="tc-words p2">definition</p>
+    </div>
+
+    <div class="middle-container">
+      <img class="feather f1" src="images/feather1.png" alt="feather-img" />
+      <img class="feather f2" src="images/feather2.png" alt="feather-img" />
+      <header>
         <h1>Word finder</h1>
-    </header>
+      </header>
+    </div>
 
     <div class="container">
-        <ul class="result-list"></ul>
+      <ul class="result-list"></ul>
     </div>
 
     <script src="index.js"></script>
     <script src="muse.js"></script>
-</body>
+  </body>
 </html>
