@@ -43,25 +43,25 @@ Structure:
 ### Overview
  - <input type="checkbox" checked /> Fetch data from the API
  - <input type="checkbox" checked /> Make the data from the API appear on a website
- - <input type="checkbox" unchecked /> Plan out what to show on the website
- - <input type="checkbox" unchecked /> Mark up the site (HTML)
- - <input type="checkbox" unchecked /> Styling (CSS)
+ - <input type="checkbox" checked /> Plan out what to show on the website
+ - <input type="checkbox" checked /> Mark up the site (HTML)
+ - <input type="checkbox" checked /> Styling (CSS)
  - <input type="checkbox" unchecked /> Make minimum viable product (no options, only searching for a word and display the result)
  - <input type="checkbox" unchecked /> Make options available and add Spanish
  - <input type="checkbox" unchecked /> Fix bugs, errors, and finish the design
  - <input type="checkbox" unchecked /> Deploy
 
 ### Elements (HTML)
- - <input type="checkbox" unchecked /> Text field and top banner to display daily word on top
- - <input type="checkbox" unchecked /> Input field to enter a word
- - <input type="checkbox" unchecked /> Skeleton to place the result 
+ - <input type="checkbox" checked /> Text field and top banner to display daily word on top
+ - <input type="checkbox" checked /> Input field to enter a word
+ - <input type="checkbox" checked /> Skeleton to place the result 
  - <input type="checkbox" unchecked /> Checkboxes for different options
  - <input type="checkbox" unchecked /> Submit button (may be replaced with only using Return/Enter)
 
 ### Logic (JS)
- - <input type="checkbox" unchecked /> Fetch all data from the API corresponding to the word
+ - <input type="checkbox" checked /> Fetch all data from the API corresponding to the word
  - <input type="checkbox" unchecked /> Filter the data corresponding to the options from the user
- - <input type="checkbox" unchecked /> Display the data in the html result skeleton
+ - <input type="checkbox" checked /> Display the data in the html result skeleton
  - <input type="checkbox" unchecked /> Remove the data when the user is done
 
  ### Useful links

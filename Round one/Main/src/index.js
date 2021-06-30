@@ -14,8 +14,6 @@ app.get('/', (req, res) => {
     });
 })
 
-
-
 app.get('/styles.css', (req, res) => {
     res.sendFile('./styles.css', { root: __dirname }, (err) => {
         if (err) console.log(err.message);
