@@ -32,9 +32,6 @@ function generateHTML(json) {
 }
 
 function runAPI(event) {
-    //console.log(inputFieldValue)
-    let search = inputField.length;
-
     findWords('ml', inputField.value);
 }
 
