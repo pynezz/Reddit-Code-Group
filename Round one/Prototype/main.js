@@ -1,8 +1,6 @@
-const express = require('express');
-const { env } = require('process');
-const app = express();
+const app = require('express')();
 const server = require('http').createServer(app);
-const PORT = 3000 || env.PORT;
+const PORT = process.env.PORT || 3000;
 
 const INDEX = '/index.html';
 const MUSE = '/muse.js';
@@ -10,37 +8,37 @@ const INDEXJS = '/index.js';
 const CSS = '/styles.css';
 
 app.get('/', (req, res) => {
-    res.sendFile(INDEX, { root : __dirname }, (err) => {
+    res.sendFile(__dirname + INDEX, (err) => {
         if (err) console.log(err);
     });
 })
 
 app.get('/styles.css', (req, res) => {
-    res.sendFile(CSS, {root : __dirname }, (err) => {
+    res.sendFile(__dirname + CSS, (err) => {
         if (err) console.log(err);
     });
 })
 
 app.get('/images/feather1.png', (req, res) => {
-    res.sendFile('/images/feather1.png', { root : __dirname }, (err) => {
+    res.sendFile(__dirname + '/images/feather1.png', (err) => {
         if (err) console.log(err);
     });
 })
 
 app.get('/images/feather2.png', (req, res) => {
-    res.sendFile('/images/feather2.png', { root : __dirname }, (err) => {
+    res.sendFile(__dirname + '/images/feather2.png', (err) => {
         if (err) console.log(err);
     });
 })
 
 app.get('/index.js', (req, res) => {
-    res.sendFile(INDEXJS, {root : __dirname }, (err) => {
+    res.sendFile(__dirname + INDEXJS, (err) => {
         if (err) console.log(err);
     });
 })
 
 app.get('/muse.js', (req, res) => {
-    res.sendFile(MUSE, {root : __dirname }, (err) => {
+    res.sendFile(__dirname + MUSE, (err) => {
         if (err) console.log(err);
     });
 })
