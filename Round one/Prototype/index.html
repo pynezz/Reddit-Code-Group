@@ -26,17 +26,61 @@
     <div class="middle-container">
       <img class="feather f1" src="images/feather1.png" alt="feather-img" />
       <img class="feather f2" src="images/feather2.png" alt="feather-img" />
+
       <header>
         <h1>Word finder</h1>
       </header>
+
+      <div class="input">
+        <input type="text" class="input-field" placeholder="Type a word..." />
+        <button class="search-word" type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+
+      <div class="choices-container">
+        <table>
+          <tr>
+            <td>
+              <input
+                type="radio"
+                id="Choice1"
+                name="choice"
+                value="Definition"
+              />
+              <label for="Choice1">Definition</label>
+            </td>
+            <td>
+              <input type="radio" id="Choice2" name="choice" value="Synonyms" />
+              <label for="Choice2">Synonyms</label>
+            </td>
+            <td>
+              <input
+                type="radio"
+                id="Choice3"
+                name="choice"
+                value="Similar Words"
+              />
+              <label for="Choice3">Similar Words</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="radio" id="Choice4" name="choice" value="Antonyms" />
+              <label for="Choice4">Antonyms</label>
+            </td>
+            <td>
+              <input type="radio" id="Choice5" name="choice" value="Spanish" />
+              <label for="Choice5">Spanish</label>
+            </td>
+            <td>
+              <input type="radio" id="Choice6" name="contact" value="Rhymes" />
+              <label for="Choice6">Rhymes</label>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
-    <div class="input">
-      <input type="text" class="input-field" placeholder="type a word">
-      <button class="search-word" type="submit">
-        <i class="fas fa-search"></i>
-      </button>
-    </div>
-    
 
     <div class="container">
       <ul class="result-list"></ul>
