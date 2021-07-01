@@ -1,7 +1,15 @@
 const API_URL = 'https://api.datamuse.com/words?';
 const resultList = document.querySelector('.result-list');
 const inputField = document.querySelector('.input-field');
-const searchButton = document.querySelector('.search-word').addEventListener('click', runAPI);
+const searchButton = document.querySelector('.search-word');
+searchButton.addEventListener('click', runAPI);
+inputField.addEventListener('keyup', function (event) {
+    if (event.keyCode === 13) {
+        console.log('Submit');
+        runAPI();
+        return false;
+    }
+})
 
 function findWords(params, search) {
     let request = new XMLHttpRequest();
@@ -32,6 +40,14 @@ function generateHTML(json) {
 }
 
 function runAPI(event) {
+    removeOldData(resultList);
     findWords('ml', inputField.value);
 }
 
+function removeOldData(parent) {
+    if (resultList.childNodes.length > 0) {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+    }
+}
