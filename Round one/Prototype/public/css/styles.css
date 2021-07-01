@@ -58,28 +58,103 @@ h1 {
   transform: rotate(120deg);
   top: 1rem;
 }
+body {
+  margin: 0;
+  padding: 0;
+}
 
-/* Appearance */
+/*--------------TOP CONTAINER----------------*/
 
-input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: none;
-  border: 0.5px solid #499aa3;
+.top-container {
+  background-color: #499aa3;
+}
 
+.tc-words {
+  display: inline-block;
+  font-size: 1.3rem;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+.p1 {
+  width: 20rem;
+  padding: 0.5rem 5rem 0.5rem;
+  font-weight: 400;
+}
+
+.p2 {
+  font-weight: 200;
+}
+
+/*--------------MIDDLE CONTAINER----------------*/
+
+.middle-container {
+  text-align: center;
+}
+
+h1 {
+  font-family: "Poppins", sans-serif;
+  margin: 1.5rem auto 10rem auto;
+  display: inline-block;
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+.feather {
+  height: 10rem;
+  width: auto;
+  position: absolute;
+}
+
+.f1 {
+  left: 20rem;
+  transform: rotate(-60deg);
+  top: 3.5rem;
+}
+
+.f2 {
+  right: 20rem;
+  transform: rotate(120deg);
+  top: 1rem;
+}
+
+.input {
+  margin-top: -5rem;
+  font-size: 1.3rem;
+  font-family: "poppins";
+  font-weight: 200;
+}
+.input-field {
+  font-family: "poppins";
+  font-size: 1rem;
+  width: 24rem;
+  height: 2rem;
+  border-radius: 4px;
+  border-color: black;
 }
 
 .search-word {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: none;
-  border: 0.5px solid;
-  color: #499aa3;
+  height: 2.4rem;
+  width: 2.4rem;
+  background-color: #499aa3;
+  border: 0px;
+  border-radius: 2px;
+  font-size: 1rem;
 }
 
-.word-item {
-  padding: 0rem 0.5rem;
-  list-style: none;
+.fa-search {
+  color: white;
+}
+
+/*--------------CHOICES CONTAINER----------------*/
+
+.choices-container {
+  margin-top: 2rem;
+  font-family: "poppins";
+}
+
+table {
+  display: inline-block;
+  text-align: left;
 }
