@@ -5,7 +5,6 @@ const searchButton = document.querySelector('.search-word');
 searchButton.addEventListener('click', runAPI);
 inputField.addEventListener('keyup', function (event) {
     if (event.keyCode === 13) {
-        console.log('Submit');
         runAPI();
         return false;
     }
