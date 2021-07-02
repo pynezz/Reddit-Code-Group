@@ -43,38 +43,38 @@
           <tr>
             <td>
               <input
-                type="radio"
-                id="Choice1"
+                type="checkbox"
+                id="noun"
                 name="choice"
-                value="Definition"
+                value="rel_jja"
               />
-              <label for="Choice1">Definition</label>
+              <label for="noun">Find nouns</label>
             </td>
             <td>
-              <input type="radio" id="Choice2" name="choice" value="Synonyms" />
-              <label for="Choice2">Synonyms</label>
+              <input type="checkbox" id="similar" name="choice" value="ml" unchecked/>
+              <label for="similar">Find similar</label>
             </td>
             <td>
               <input
-                type="radio"
-                id="Choice3"
+                type="checkbox"
+                id="rhymes"
                 name="choice"
-                value="Similar Words"
+                value="rel_rhy"
               />
-              <label for="Choice3">Similar Words</label>
+              <label for="Choice3">Rhymes</label>
             </td>
           </tr>
           <tr>
             <td>
-              <input type="radio" id="Choice4" name="choice" value="Antonyms" />
+              <input type="checkbox" id="Choice4" name="choice" value="Antonyms" />
               <label for="Choice4">Antonyms</label>
             </td>
             <td>
-              <input type="radio" id="Choice5" name="choice" value="Spanish" />
+              <input type="checkbox" id="Choice5" name="choice" value="Spanish" />
               <label for="Choice5">Spanish</label>
             </td>
             <td>
-              <input type="radio" id="Choice6" name="contact" value="Rhymes" />
+              <input type="checkbox" id="Choice6" name="contact" value="Rhymes" />
               <label for="Choice6">Rhymes</label>
             </td>
           </tr>
@@ -82,8 +82,10 @@
       </div>
     </div>
 
-    <div class="container">
-      <ul class="result-list"></ul>
+    <div class="results-container">
+      <ul class="result-list-nouns" id="rel_jja"></ul>
+      <ul class="result-list-similar" id="ml"></ul>
+      <ul class="result-list-rhymes" id="rel_rhy"></ul>
     </div>
 
     <script src="./js/muse.js"></script>

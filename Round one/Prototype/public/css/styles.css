@@ -158,3 +158,27 @@ table {
   display: inline-block;
   text-align: left;
 }
+
+/*-------------------RESULTS---------------------*/
+
+
+.results-container {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 400;
+}
+
+.result-list-nouns {
+  display: flex;
+  border-top: orchid solid 10px;
+}
+
+.wordresult {
+  background-color: orchid;
+}
+
+li {
+  list-style-type: none;
+}
