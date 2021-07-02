@@ -53,46 +53,47 @@ var Choices = {
     RHYMES : 'rhy'
 }
 
+// Checkboxes that we need to check if is checked
 const nounsCheckBox = document.getElementById('noun');
 const similarCheckBox = document.getElementById('similar');
-let checks = [nounsCheckBox, similarCheckBox];
+const rhymesCheckBox = document.getElementById('rhymes');
 
-function newRequest(params, search) {
-    return new XMLHttpRequest();
-} 
+// This is an array of bools
+let checks = [nounsCheckBox, similarCheckBox, rhymesCheckBox];
+
 
 function useChecks(search) {
-    checks.forEach(element => {
-        if (element.checked) {
-            let res = 'no results';
+    checks.forEach(element => {         // If an element is checked (true)
+        if (element.checked) {          // ...then create a request for that checkbox
+            let res = 'no results';            
             console.log(element);
             let req = new XMLHttpRequest(); 
-            req.open('GET', `${API_URL}${element.value}=${search}`, search);
+            req.open('GET', `${API_URL}${element.value}=${search}&max=12`, search);
             req.setRequestHeader('Accept', 'application/json');
             req.send();
             req.onload = () => {
                 if (req.status == 200) {
                      res = req.response; 
                 }
-                generateHTML(res, element.value);
+                generateHTML(res, element.value);   // And generate the corresponding html (element.value is the parameter)
             }
         }
     });
 }
 
-function findWords(params, search) {
-    let request = new XMLHttpRequest();
-    let res;
-    request.open('GET', `${API_URL}${params}=${search}`);
-    request.setRequestHeader('Accept', 'application/json');
-    request.send();
-    request.onload = () => {
-        if (request.status == 200) {
-            res = request.response;
-        }
-        generateHTML(res);
-    }
-}
+// function findWords(params, search) {
+//     let request = new XMLHttpRequest();
+//     let res;
+//     request.open('GET', `${API_URL}${params}=${search}`);
+//     request.setRequestHeader('Accept', 'application/json');
+//     request.send();
+//     request.onload = () => {
+//         if (request.status == 200) {
+//             res = request.response;
+//         }
+//         generateHTML(res);
+//     }
+// }
 
 function generateHTML(json, tag) {
 
@@ -102,7 +103,8 @@ function generateHTML(json, tag) {
     const elementDiv = document.createElement('div');
     elementDiv.classList.add('wordresult');
     const header = document.createElement('h3');
-    header.innerText = result.
+    header.innerText = resultHTML.title;
+    elementDiv.appendChild(header);
 
     result.forEach(element => {
         const newWordElement = document.createElement('li');
@@ -120,6 +122,8 @@ function runAPI(event) {
     removeOldData(similarResultList);
     //findWords('ml', inputField.value);
     useChecks(inputField.value);
+    inputField.scrollIntoView();
+
 }
 
 function removeOldData(parent) {
