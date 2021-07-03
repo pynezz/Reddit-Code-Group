@@ -32,26 +32,41 @@
       </header>
 
       <div class="input">
-        <input type="text" class="input-field" placeholder="Type a word..." />
+        <input
+          type="text"
+          class="input-field"
+          id="inp"
+          placeholder="Type a word..."
+        />
         <button class="search-word" type="submit">
           <i class="fas fa-search"></i>
         </button>
+      </div>
+
+      <div class="alert">
+        Please write a word and select one or more options below
+        <span
+          class="closebtn"
+          onclick="this.parentElement.style.display='none';"
+          >&times;</span
+        >
       </div>
 
       <div class="choices-container">
         <table>
           <tr>
             <td>
-              <input
-                type="checkbox"
-                id="noun"
-                name="choice"
-                value="rel_jja"
-              />
+              <input type="checkbox" id="noun" name="choice" value="rel_jja" />
               <label for="noun">Find nouns</label>
             </td>
             <td>
-              <input type="checkbox" id="similar" name="choice" value="ml" unchecked/>
+              <input
+                type="checkbox"
+                id="similar"
+                name="choice"
+                value="ml"
+                unchecked
+              />
               <label for="similar">Find similar</label>
             </td>
             <td>
@@ -66,15 +81,30 @@
           </tr>
           <tr>
             <td>
-              <input type="checkbox" id="Choice4" name="choice" value="Antonyms" />
+              <input
+                type="checkbox"
+                id="Choice4"
+                name="choice"
+                value="Antonyms"
+              />
               <label for="Choice4">Antonyms</label>
             </td>
             <td>
-              <input type="checkbox" id="Choice5" name="choice" value="Spanish" />
+              <input
+                type="checkbox"
+                id="Choice5"
+                name="choice"
+                value="Spanish"
+              />
               <label for="Choice5">Spanish</label>
             </td>
             <td>
-              <input type="checkbox" id="Choice6" name="choice" value="Hyponyms" />
+              <input
+                type="checkbox"
+                id="Choice6"
+                name="choice"
+                value="Hyponyms"
+              />
               <label for="Choice6">Hyponyms</label>
             </td>
           </tr>
@@ -85,7 +115,11 @@
     <div class="results-container">
       <ul class="result-list-similar" id="ml" title="Similar words"></ul>
       <ul class="result-list-rhymes" id="rel_rhy" title="Rhymes"></ul>
-      <ul class="result-list-nouns" id="rel_jja" title="Popular associated nouns"></ul>
+      <ul
+        class="result-list-nouns"
+        id="rel_jja"
+        title="Popular associated nouns"
+      ></ul>
     </div>
 
     <script src="./js/muse.js"></script>

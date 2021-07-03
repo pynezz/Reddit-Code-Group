@@ -1,18 +1,18 @@
-const API_URL = 'https://api.datamuse.com/words?';
+const API_URL = "https://api.datamuse.com/words?";
 //const resultList = document.querySelector('.result-list');
 
-const nounResultList = document.querySelector('.result-list-nouns');
-const rhymesResultList = document.querySelector('.result-list-rhymes');
-const similarResultList = document.querySelector('.result-list-similar');
-const inputField = document.querySelector('.input-field');
-const searchButton = document.querySelector('.search-word');
-searchButton.addEventListener('click', runAPI);
-inputField.addEventListener('keyup', function (event) {
-    if (event.keyCode === 13) {
-        runAPI();
-        return false;
-    }
-})
+const nounResultList = document.querySelector(".result-list-nouns");
+const rhymesResultList = document.querySelector(".result-list-rhymes");
+const similarResultList = document.querySelector(".result-list-similar");
+const inputField = document.querySelector(".input-field");
+const searchButton = document.querySelector(".search-word");
+searchButton.addEventListener("click", afterClick);
+inputField.addEventListener("keyup", function (event) {
+  if (event.keyCode === 13) {
+    runAPI();
+    return false;
+  }
+});
 
 /*
 Params:
@@ -39,46 +39,47 @@ Related word codes: (ex: rel_jja)
         ex: car -> accelerator
 
     rhy = Rhymes    
-*/ 
+*/
 
 var Choices = {
-    SIMILAR : 'ml',
-    POPULAR_NOUNS : 'jja',
-    POPULAR_ADJ : 'jjb',
-    SYNONYMS : 'syn',
-    ANTONYMS : 'ant',
-    KINDOF : 'spc',
-    GENERAL : 'gen',
-    COMPRISED : 'com',
-    RHYMES : 'rhy'
-}
+  SIMILAR: "ml",
+  POPULAR_NOUNS: "jja",
+  POPULAR_ADJ: "jjb",
+  SYNONYMS: "syn",
+  ANTONYMS: "ant",
+  KINDOF: "spc",
+  GENERAL: "gen",
+  COMPRISED: "com",
+  RHYMES: "rhy",
+};
 
 // Checkboxes that we need to check if is checked
-const nounsCheckBox = document.getElementById('noun');
-const similarCheckBox = document.getElementById('similar');
-const rhymesCheckBox = document.getElementById('rhymes');
+const nounsCheckBox = document.getElementById("noun");
+const similarCheckBox = document.getElementById("similar");
+const rhymesCheckBox = document.getElementById("rhymes");
 
 // This is an array of bools
 let checks = [nounsCheckBox, similarCheckBox, rhymesCheckBox];
 
-
 function useChecks(search) {
-    checks.forEach(element => {         // If an element is checked (true)
-        if (element.checked) {          // ...then create a request for that checkbox
-            let res = 'no results';            
-            console.log(element);
-            let req = new XMLHttpRequest(); 
-            req.open('GET', `${API_URL}${element.value}=${search}&max=12`, search);
-            req.setRequestHeader('Accept', 'application/json');
-            req.send();
-            req.onload = () => {
-                if (req.status == 200) {
-                     res = req.response; 
-                }
-                generateHTML(res, element.value);   // And generate the corresponding html (element.value is the parameter)
-            }
+  checks.forEach((element) => {
+    // If an element is checked (true)
+    if (element.checked) {
+      // ...then create a request for that checkbox
+      let res = "no results";
+      console.log(element);
+      let req = new XMLHttpRequest();
+      req.open("GET", `${API_URL}${element.value}=${search}&max=12`, search);
+      req.setRequestHeader("Accept", "application/json");
+      req.send();
+      req.onload = () => {
+        if (req.status == 200) {
+          res = req.response;
         }
-    });
+        generateHTML(res, element.value); // And generate the corresponding html (element.value is the parameter)
+      };
+    }
+  });
 }
 
 // function findWords(params, search) {
@@ -96,40 +97,57 @@ function useChecks(search) {
 // }
 
 function generateHTML(json, tag) {
+  const resultHTML = document.getElementById(tag);
 
-    const resultHTML = document.getElementById(tag);
+  const result = JSON.parse(json);
+  const elementDiv = document.createElement("div");
+  elementDiv.classList.add("wordresult");
+  const header = document.createElement("h3");
+  header.innerText = resultHTML.title;
+  elementDiv.appendChild(header);
 
-    const result = JSON.parse(json);
-    const elementDiv = document.createElement('div');
-    elementDiv.classList.add('wordresult');
-    const header = document.createElement('h3');
-    header.innerText = resultHTML.title;
-    elementDiv.appendChild(header);
-
-    result.forEach(element => {
-        const newWordElement = document.createElement('li');
-        newWordElement.classList.add('word-item');
-        newWordElement.classList.add('result-display');
-        newWordElement.innerText = element.word;
-        elementDiv.appendChild(newWordElement);
-    });
-    resultHTML.appendChild(elementDiv);
+  result.forEach((element) => {
+    const newWordElement = document.createElement("li");
+    newWordElement.classList.add("word-item");
+    newWordElement.classList.add("result-display");
+    newWordElement.innerText = element.word;
+    elementDiv.appendChild(newWordElement);
+  });
+  resultHTML.appendChild(elementDiv);
 }
 
 function runAPI(event) {
-    removeOldData(nounResultList);
-    removeOldData(rhymesResultList);
-    removeOldData(similarResultList);
-    //findWords('ml', inputField.value);
-    useChecks(inputField.value);
-    inputField.scrollIntoView();
-
+  removeOldData(nounResultList);
+  removeOldData(rhymesResultList);
+  removeOldData(similarResultList);
+  //findWords('ml', inputField.value);
+  useChecks(inputField.value);
+  inputField.scrollIntoView();
 }
 
 function removeOldData(parent) {
-    if (parent.childNodes.length > 0) {
-        while (parent.firstChild) {
-            parent.removeChild(parent.firstChild);
-        }
+  if (parent.childNodes.length > 0) {
+    while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
     }
+  }
+}
+
+///////////// MY CHANGES //////////////////////////////
+
+const inputBox = document.getElementById("inp");
+inputBox.focus();
+
+let checked = document.querySelectorAll("input:checked");
+
+const alertDiv = document.querySelector(".alert");
+
+function afterClick() {
+  if (checked.length === 0 || inputBox.value.length === 0) {
+    // there are no checked checkboxes
+    alertDiv.style.opacity = "1";
+  } else {
+    // there are some checked checkboxes
+    runAPI();
+  }
 }

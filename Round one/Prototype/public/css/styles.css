@@ -3,8 +3,6 @@ body {
   padding: 0;
 }
 
-
-
 /*--------------TOP CONTAINER----------------*/
 
 .top-container {
@@ -141,16 +139,47 @@ h1 {
   border: 0px;
   border-radius: 2px;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .fa-search {
   color: white;
 }
 
+/*-------------------ALERT BOX---------------------*/
+
+/* The alert message box */
+.alert {
+  font-family: "poppins";
+  background-color: #499aa3;
+  margin-top: 10px;
+  display: inline-block;
+  opacity: 0;
+  color: white;
+}
+
+/* The close button */
+.closebtn {
+  margin-top: 3px;
+  margin-left: 10px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+
 /*--------------CHOICES CONTAINER----------------*/
 
 .choices-container {
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   font-family: "poppins";
 }
 
@@ -161,14 +190,13 @@ table {
 
 /*-------------------RESULTS---------------------*/
 
-
-.results-container { 
+.results-container {
   text-align: left;
   display: flex;
   justify-content: center;
   flex-direction: row;
   margin: 5px;
-  font-family: 'Poppins',  sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 300;
 }
 
