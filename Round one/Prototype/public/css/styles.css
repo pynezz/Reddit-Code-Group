@@ -37,65 +37,6 @@ h1 {
   margin: 1.5rem auto 10rem auto;
   display: inline-block;
   font-size: 4rem;
-}
-
-.feather {
-  height: 10rem;
-  width: auto;
-  position: absolute;
-}
-
-.f1 {
-  left: 20rem;
-  transform: rotate(-60deg);
-  top: 3.5rem;
-}
-
-.f2 {
-  right: 20rem;
-  transform: rotate(120deg);
-  top: 1rem;
-}
-body {
-  margin: 0;
-  padding: 0;
-}
-
-/*--------------TOP CONTAINER----------------*/
-
-.top-container {
-  background-color: #499aa3;
-}
-
-.tc-words {
-  display: inline-block;
-  font-size: 1.3rem;
-  color: white;
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-}
-
-.p1 {
-  width: 20rem;
-  padding: 0.5rem 5rem 0.5rem;
-  font-weight: 400;
-}
-
-.p2 {
-  font-weight: 200;
-}
-
-/*--------------MIDDLE CONTAINER----------------*/
-
-.middle-container {
-  text-align: center;
-}
-
-h1 {
-  font-family: "Poppins", sans-serif;
-  margin: 1.5rem auto 10rem auto;
-  display: inline-block;
-  font-size: 4rem;
   font-weight: 600;
 }
 
@@ -146,36 +87,6 @@ h1 {
   color: white;
 }
 
-/*-------------------ALERT BOX---------------------*/
-
-/* The alert message box */
-.alert {
-  font-family: "poppins";
-  background-color: #499aa3;
-  margin-top: 10px;
-  display: inline-block;
-  opacity: 0;
-  color: white;
-}
-
-/* The close button */
-.closebtn {
-  margin-top: 3px;
-  margin-left: 10px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-/* When moving the mouse over the close button */
-.closebtn:hover {
-  color: black;
-}
-
 /*--------------CHOICES CONTAINER----------------*/
 
 .choices-container {
@@ -211,4 +122,47 @@ table {
 
 li {
   list-style-type: none;
+}
+
+/*-------------------MODAL WINDOW---------------------*/
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+
+  background-color: white;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  font-family: "poppins";
+  font-size: 1rem;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1.3rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
 }

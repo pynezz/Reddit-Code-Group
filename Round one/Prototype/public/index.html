@@ -43,15 +43,6 @@
         </button>
       </div>
 
-      <div class="alert">
-        Please write a word and select one or more options below
-        <span
-          class="closebtn"
-          onclick="this.parentElement.style.display='none';"
-          >&times;</span
-        >
-      </div>
-
       <div class="choices-container">
         <table>
           <tr>
@@ -121,6 +112,15 @@
         title="Popular associated nouns"
       ></ul>
     </div>
+
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <p>
+        Write a word and select one or more options before clicking the search
+        button
+      </p>
+    </div>
+    <div class="overlay hidden"></div>
 
     <script src="./js/muse.js"></script>
   </body>
