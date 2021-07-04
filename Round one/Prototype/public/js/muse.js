@@ -78,26 +78,29 @@ const spanishCheckBox = document.getElementById("spanish");
 
 // This is an array of (not bools) checkBoxElements.
 // We access these to check if they're checked or not
-let checks = [nounsCheckBox, similarCheckBox, rhymesCheckBox];
+let checks = [
+    nounsCheckBox, 
+    similarCheckBox, 
+    rhymesCheckBox, 
+    antonymsCheckBox, 
+    hyponymsCheckBox, 
+    spanishCheckBox
+];
 
 function useChecks(search) {
-  checks.forEach((element) => {
-    // For every element in 'checks'
-    if (element.checked) {
-      // If an element is checked (true)
-      let res = "no results"; // Create a string variable with default value "no results"
-      //console.log(element);            // Checking if it works
-      let req = new XMLHttpRequest(); // Make a new request:
+  checks.forEach((element) => {             // For every element in 'checks'
+    if (element.checked) {                  // If an element is checked (true)               
+      let res = "no results";               // Create a string variable with default value "no results"
+      //console.log(element);               // Checking if it works
+      let req = new XMLHttpRequest();       // Make a new request:
       req.open("GET", `${API_URL}${element.value}=${search}&max=12`, search);
       req.setRequestHeader("Accept", "application/json");
-      req.send(); // Send the request to the API with the checkbox's value as a parameter
-      req.onload = () => {
-        // When the request is done
-        if (req.status == 200) {
-          // If the status is 200 (no problems)
-          res = req.response; // Assign the response to the string variable 'res'
+      req.send();                           // Send the request to the API with the checkbox's value as a parameter
+      req.onload = () => {                  // When the request is done
+        if (req.status == 200) {            // If the status is 200 (no problems)
+          res = req.response;               // Assign the response to the string variable 'res'
         }
-        generateHTML(res, element.value); // And lastly, generate the HTML
+        generateHTML(res, element.value);   // And lastly, generate the HTML
       };
     }
   });
@@ -117,9 +120,10 @@ function useChecks(search) {
 //     }
 // }
 
-function generateHTML(json, tag) {
-  const resultHTML = document.getElementById(tag);
+function generateHTML(json, tag) {                       
 
+  const resultHTML = document.getElementById(tag);
+  removeOldData(resultHTML.parentElement);
   const result = JSON.parse(json);
   const elementDiv = document.createElement("div");
   elementDiv.classList.add("wordresult");
@@ -138,9 +142,9 @@ function generateHTML(json, tag) {
 }
 
 function runAPI(event) {
-  removeOldData(nounResultList);
-  removeOldData(rhymesResultList);
-  removeOldData(similarResultList);
+//   removeOldData(nounResultList);
+//   removeOldData(rhymesResultList);
+//   removeOldData(similarResultList);
   //findWords('ml', inputField.value);
   useChecks(inputField.value);
   inputField.scrollIntoView();
