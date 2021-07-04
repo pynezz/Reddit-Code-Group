@@ -83,17 +83,18 @@ let checks = [
     similarCheckBox, 
     rhymesCheckBox, 
     antonymsCheckBox, 
-    hyponymsCheckBox, 
-    spanishCheckBox
+    hyponymsCheckBox
 ];
 
 function useChecks(search) {
+  let maxResponses = '&max=12';
+  const lang = spanishCheckBox.checked ? spanishCheckBox.value : "";
   checks.forEach((element) => {             // For every element in 'checks'
-    if (element.checked) {                  // If an element is checked (true)               
+    if (element.checked) {                  // If an element is checked (true)
       let res = "no results";               // Create a string variable with default value "no results"
       //console.log(element);               // Checking if it works
       let req = new XMLHttpRequest();       // Make a new request:
-      req.open("GET", `${API_URL}${element.value}=${search}&max=12`, search);
+      req.open("GET", `${API_URL}${element.value}=${search}${lang}${maxResponses}`, search);
       req.setRequestHeader("Accept", "application/json");
       req.send();                           // Send the request to the API with the checkbox's value as a parameter
       req.onload = () => {                  // When the request is done
@@ -123,7 +124,7 @@ function useChecks(search) {
 function generateHTML(json, tag) {                       
 
   const resultHTML = document.getElementById(tag);
-  removeOldData(resultHTML.parentElement);
+  removeOldData(resultHTML);
   const result = JSON.parse(json);
   const elementDiv = document.createElement("div");
   elementDiv.classList.add("wordresult");
