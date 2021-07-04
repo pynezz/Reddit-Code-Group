@@ -5,6 +5,9 @@ const API_URL = "https://api.datamuse.com/words?";
 const nounResultList = document.querySelector(".result-list-nouns");
 const rhymesResultList = document.querySelector(".result-list-rhymes");
 const similarResultList = document.querySelector(".result-list-similar");
+const antonymsResultList = document.querySelector(".result-list-antonyms");
+const hyponymsResultList = document.querySelector(".result-list-hyponyms");
+const spanishResultList = document.querySelector(".result-list-spanish");
 
 //* Get the other neccessary HTML tags:
 const inputField = document.querySelector(".input-field");
@@ -68,6 +71,9 @@ var Choices = {
 const nounsCheckBox = document.getElementById("noun");
 const similarCheckBox = document.getElementById("similar");
 const rhymesCheckBox = document.getElementById("rhymes");
+const antonymsCheckBox = document.getElementById("antonyms");
+const hyponymsCheckBox = document.getElementById("hyponyms");
+const spanishCheckBox = document.getElementById("spanish");
 
 // This is an array of (not bools) checkBoxElements. 
 // We access these to check if they're checked or not
@@ -79,13 +85,8 @@ function useChecks(search) {
       let res = "no results";            // Create a string variable with default value "no results" 
       //console.log(element);            // Checking if it works
       let req = new XMLHttpRequest();    // Make a new request:
-      req.open(
-          "GET", 
-          `${API_URL}${element.value}=${search}&max=12`,
-          search);
-      req.setRequestHeader(                 
-          "Accept",
-          "application/json");              
+      req.open("GET", `${API_URL}${element.value}=${search}&max=12`, search);
+      req.setRequestHeader("Accept", "application/json");              
       req.send();                        // Send the request to the API with the checkbox's value as a parameter
       req.onload = () => {               // When the request is done
         if (req.status == 200) {         // If the status is 200 (no problems)

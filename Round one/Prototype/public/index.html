@@ -57,55 +57,29 @@
           <tr>
             <td>
               <input type="checkbox" id="noun" name="choice" value="rel_jja" />
-              <label for="noun">Find nouns</label>
+              <label for="noun">Popular related nouns</label>
             </td>
             <td>
-              <input
-                type="checkbox"
-                id="similar"
-                name="choice"
-                value="ml"
-                unchecked
-              />
+              <input type="checkbox" id="similar" name="choice" value="ml" />
               <label for="similar">Find similar</label>
             </td>
             <td>
-              <input
-                type="checkbox"
-                id="rhymes"
-                name="choice"
-                value="rel_rhy"
-              />
-              <label for="Choice3">Rhymes</label>
+              <input type="checkbox" id="rhymes" name="choice" value="rel_rhy" />
+              <label for="rhymes">Rhymes</label>
             </td>
           </tr>
           <tr>
             <td>
-              <input
-                type="checkbox"
-                id="Choice4"
-                name="choice"
-                value="Antonyms"
-              />
-              <label for="Choice4">Antonyms</label>
+              <input type="checkbox" id="antonyms" name="choice" value="rel_ant" />
+              <label for="antonyms">Antonyms</label>
             </td>
             <td>
-              <input
-                type="checkbox"
-                id="Choice5"
-                name="choice"
-                value="Spanish"
-              />
-              <label for="Choice5">Spanish</label>
+              <input type="checkbox" id="spanish" name="choice" value="Spanish" />
+              <label for="spanish">Spanish</label>
             </td>
             <td>
-              <input
-                type="checkbox"
-                id="Choice6"
-                name="choice"
-                value="Hyponyms"
-              />
-              <label for="Choice6">Hyponyms</label>
+              <input type="checkbox" id="hyponyms" name="choice" value="rel_gen" />
+              <label for="hyponyms">Hyponyms</label>
             </td>
           </tr>
         </table>
@@ -115,11 +89,10 @@
     <div class="results-container">
       <ul class="result-list-similar" id="ml" title="Similar words"></ul>
       <ul class="result-list-rhymes" id="rel_rhy" title="Rhymes"></ul>
-      <ul
-        class="result-list-nouns"
-        id="rel_jja"
-        title="Popular associated nouns"
-      ></ul>
+      <ul class="result-list-nouns" id="rel_jja" title="Popular associated nouns" ></ul>
+      <ul class="result-list-antonyms" id="rel_ant" title="Antonyms"></ul>
+      <ul class="result-list-hyponyms" id="rel_gen" title="Kind of"></ul>
+      <ul class="result-list-spanish" id="es" title="Spanish"></ul>
     </div>
 
     <script src="./js/muse.js"></script>
