@@ -1,29 +1,4 @@
-const API_URL = "https://api.datamuse.com/words?";
-//const resultList = document.querySelector('.result-list');
-
-//* Get the HTML tags that we'll attach the returned API data to:
-const nounResultList = document.querySelector(".result-list-nouns");
-const rhymesResultList = document.querySelector(".result-list-rhymes");
-const similarResultList = document.querySelector(".result-list-similar");
-const antonymsResultList = document.querySelector(".result-list-antonyms");
-const hyponymsResultList = document.querySelector(".result-list-hyponyms");
-const spanishResultList = document.querySelector(".result-list-spanish");
-
-//* Get the other neccessary HTML tags:
-const inputField = document.querySelector(".input-field");
-const searchButton = document.querySelector(".search-word");
-
-//* Add listeners to wait for events
-searchButton.addEventListener("click", afterClick);
-inputField.addEventListener("keyup", function (event) {
-  if (event.keyCode === 13) {
-    // Keycode 13 = Enter key
-    runAPI(); // If enter key is pressed call the API
-    return false; // Preventing accidental multiple calls
-  }
-});
-
-/*
+/* ------------------ REFERENCE ------------------- 
             ? |---  DOCUMENTATION  ---| ?
 Params:
     ml = similar words
@@ -49,26 +24,42 @@ Related word codes: (ex: rel_jja)
         ex: car -> accelerator
 
     rhy = Rhymes    
+
+    SIMILAR: "ml"
+    POPULAR_NOUNS: "rel_jja"
+    POPULAR_ADJ: "rel_jjb"
+    SYNONYMS: "rel_syn"
+    ANTONYMS: "rel_ant"
+    KINDOF: "rel_spc"
+    GENERAL: "rel_gen"
+    COMPRISED: "rel_com"
+    RHYMES: "rel_rhy"
 */
 
-//* The parameters to tell the API what data we want
-// It's not in use for the moment.
-// I placed them in <input value=""> instead.
-// From there it's easy to access it from JS with checkBox.value
-var Choices = {
-  SIMILAR: "ml",
-  POPULAR_NOUNS: "rel_jja",
-  POPULAR_ADJ: "rel_jjb",
-  SYNONYMS: "rel_syn",
-  ANTONYMS: "rel_ant",
-  KINDOF: "rel_spc",
-  GENERAL: "rel_gen",
-  COMPRISED: "rel_com",
-  RHYMES: "rel_rhy",
-};
+const API_URL = "https://api.datamuse.com/words?";
+
+//* Get the HTML tags that we'll attach the returned API data to:
+const nounResultList = document.querySelector(".result-list-nouns");
+const rhymesResultList = document.querySelector(".result-list-rhymes");
+const similarResultList = document.querySelector(".result-list-similar");
+const antonymsResultList = document.querySelector(".result-list-antonyms");
+const hyponymsResultList = document.querySelector(".result-list-hyponyms");
+const spanishResultList = document.querySelector(".result-list-spanish");
+
+//* Get the other neccessary HTML tags:
+const inputField = document.querySelector(".input-field");
+const searchButton = document.querySelector(".search-word");
+
+//* Add listeners to wait for events
+searchButton.addEventListener("click", afterClick);
+inputField.addEventListener("keyup", function (event) {
+  if (event.keyCode === 13) { // Keycode 13 = Enter key
+    runAPI();                 // If enter key is pressed call the API
+    return false;             // Preventing accidental multiple calls
+  }
+});
 
 // Checkboxes that we need to check if is checked
-//
 const nounsCheckBox = document.getElementById("noun");
 const similarCheckBox = document.getElementById("similar");
 const rhymesCheckBox = document.getElementById("rhymes");
@@ -91,8 +82,7 @@ function useChecks(search) {
   const lang = spanishCheckBox.checked ? spanishCheckBox.value : "";
   checks.forEach((element) => {             // For every element in 'checks'
     if (element.checked) {                  // If an element is checked (true)
-      let res = "no results";               // Create a string variable with default value "no results"
-      //console.log(element);               // Checking if it works
+      let res = "";                         // Create a string variable
       let req = new XMLHttpRequest();       // Make a new request:
       req.open("GET", `${API_URL}${element.value}=${search}${lang}${maxResponses}`, search);
       req.setRequestHeader("Accept", "application/json");
@@ -104,22 +94,14 @@ function useChecks(search) {
         generateHTML(res, element.value);   // And lastly, generate the HTML
       };
     }
+    if (!element.checked) {                 // Element is not checked
+      const redundantHeader = document.getElementById(element.value);
+      if (redundantHeader.hasChildNodes()) {
+        removeOldData(redundantHeader);
+      }
+    }
   });
 }
-
-// function findWords(params, search) {
-//     let request = new XMLHttpRequest();
-//     let res;
-//     request.open('GET', `${API_URL}${params}=${search}`);
-//     request.setRequestHeader('Accept', 'application/json');
-//     request.send();
-//     request.onload = () => {
-//         if (request.status == 200) {
-//             res = request.response;
-//         }
-//         generateHTML(res);
-//     }
-// }
 
 function generateHTML(json, tag) {                       
 
@@ -132,6 +114,16 @@ function generateHTML(json, tag) {
   header.innerText = resultHTML.title;
   elementDiv.appendChild(header);
 
+  if (result.length === 0) {        // If no results
+      const noResultsElement = document.createElement('li');
+      noResultsElement.classList.add('word-item', 'result-display');
+      noResultsElement.innerText = "No results..";
+      elementDiv.appendChild(noResultsElement);
+      resultHTML.appendChild(elementDiv);
+      return;                       // Exit out of the function, if there is no results, 
+                                    // do not do anything else
+  } 
+
   result.forEach((element) => {
     const newWordElement = document.createElement("li");
     newWordElement.classList.add("word-item");
@@ -143,10 +135,6 @@ function generateHTML(json, tag) {
 }
 
 function runAPI(event) {
-//   removeOldData(nounResultList);
-//   removeOldData(rhymesResultList);
-//   removeOldData(similarResultList);
-  //findWords('ml', inputField.value);
   useChecks(inputField.value);
   inputField.scrollIntoView();
 }
