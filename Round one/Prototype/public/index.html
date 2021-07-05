@@ -24,13 +24,9 @@
     </div>
 
     <div class="middle-container">
-      <img class="feather f1" src="./images/feather1.png" alt="feather-img" />
-      <img class="feather f2" src="./images/feather2.png" alt="feather-img" />
-
       <header>
         <h1>Word finder</h1>
       </header>
-
       <div class="input">
         <input
           type="text"
@@ -55,13 +51,23 @@
               <label for="similar">Find similar</label>
             </td>
             <td>
-              <input type="checkbox" id="rhymes" name="choice" value="rel_rhy" />
+              <input
+                type="checkbox"
+                id="rhymes"
+                name="choice"
+                value="rel_rhy"
+              />
               <label for="rhymes">Rhymes</label>
             </td>
           </tr>
           <tr>
             <td>
-              <input type="checkbox" id="antonyms" name="choice" value="rel_ant" />
+              <input
+                type="checkbox"
+                id="antonyms"
+                name="choice"
+                value="rel_ant"
+              />
               <label for="antonyms">Antonyms</label>
             </td>
             <td>
@@ -69,7 +75,12 @@
               <label for="spanish">Spanish</label>
             </td>
             <td>
-              <input type="checkbox" id="hyponyms" name="choice" value="rel_gen" />
+              <input
+                type="checkbox"
+                id="hyponyms"
+                name="choice"
+                value="rel_gen"
+              />
               <label for="hyponyms">Hyponyms</label>
             </td>
           </tr>
@@ -80,7 +91,11 @@
     <div class="results-container">
       <ul class="result-list-similar" id="ml" title="Similar words"></ul>
       <ul class="result-list-rhymes" id="rel_rhy" title="Rhymes"></ul>
-      <ul class="result-list-nouns" id="rel_jja" title="Popular associated nouns"></ul>
+      <ul
+        class="result-list-nouns"
+        id="rel_jja"
+        title="Popular associated nouns"
+      ></ul>
       <ul class="result-list-antonyms" id="rel_ant" title="Antonyms"></ul>
       <ul class="result-list-hyponyms" id="rel_gen" title="Hyponyms"></ul>
       <ul class="result-list-spanish" id="es" title="Spanish"></ul>

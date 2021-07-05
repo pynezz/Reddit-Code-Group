@@ -39,6 +39,7 @@ Related word codes: (ex: rel_jja)
 const API_URL = "https://api.datamuse.com/words?";
 
 //* Get the HTML tags that we'll attach the returned API data to:
+const resultsContainer = document.querySelector(".results-container");
 const nounResultList = document.querySelector(".result-list-nouns");
 const rhymesResultList = document.querySelector(".result-list-rhymes");
 const similarResultList = document.querySelector(".result-list-similar");
@@ -53,9 +54,10 @@ const searchButton = document.querySelector(".search-word");
 //* Add listeners to wait for events
 searchButton.addEventListener("click", afterClick);
 inputField.addEventListener("keyup", function (event) {
-  if (event.keyCode === 13) { // Keycode 13 = Enter key
-    runAPI();                 // If enter key is pressed call the API
-    return false;             // Preventing accidental multiple calls
+  if (event.keyCode === 13) {
+    // Keycode 13 = Enter key
+    runAPI(); // If enter key is pressed call the API
+    return false; // Preventing accidental multiple calls
   }
 });
 
@@ -70,31 +72,40 @@ const spanishCheckBox = document.getElementById("spanish");
 // This is an array of (not bools) checkBoxElements.
 // We access these to check if they're checked or not
 let checks = [
-    nounsCheckBox, 
-    similarCheckBox, 
-    rhymesCheckBox, 
-    antonymsCheckBox, 
-    hyponymsCheckBox
+  nounsCheckBox,
+  similarCheckBox,
+  rhymesCheckBox,
+  antonymsCheckBox,
+  hyponymsCheckBox,
 ];
 
 function useChecks(search) {
-  let maxResponses = '&max=12';
+  let maxResponses = "&max=12";
   const lang = spanishCheckBox.checked ? spanishCheckBox.value : "";
-  checks.forEach((element) => {             // For every element in 'checks'
-    if (element.checked) {                  // If an element is checked (true)
-      let res = "";                         // Create a string variable
-      let req = new XMLHttpRequest();       // Make a new request:
-      req.open("GET", `${API_URL}${element.value}=${search}${lang}${maxResponses}`, search);
+  checks.forEach((element) => {
+    // For every element in 'checks'
+    if (element.checked) {
+      // If an element is checked (true)
+      let res = ""; // Create a string variable
+      let req = new XMLHttpRequest(); // Make a new request:
+      req.open(
+        "GET",
+        `${API_URL}${element.value}=${search}${lang}${maxResponses}`,
+        search
+      );
       req.setRequestHeader("Accept", "application/json");
-      req.send();                           // Send the request to the API with the checkbox's value as a parameter
-      req.onload = () => {                  // When the request is done
-        if (req.status == 200) {            // If the status is 200 (no problems)
-          res = req.response;               // Assign the response to the string variable 'res'
+      req.send(); // Send the request to the API with the checkbox's value as a parameter
+      req.onload = () => {
+        // When the request is done
+        if (req.status == 200) {
+          // If the status is 200 (no problems)
+          res = req.response; // Assign the response to the string variable 'res'
         }
-        generateHTML(res, element.value);   // And lastly, generate the HTML
+        generateHTML(res, element.value); // And lastly, generate the HTML
       };
     }
-    if (!element.checked) {                 // Element is not checked
+    if (!element.checked) {
+      // Element is not checked
       const redundantHeader = document.getElementById(element.value);
       if (redundantHeader.hasChildNodes()) {
         removeOldData(redundantHeader);
@@ -103,8 +114,7 @@ function useChecks(search) {
   });
 }
 
-function generateHTML(json, tag) {                       
-
+function generateHTML(json, tag) {
   const resultHTML = document.getElementById(tag);
   removeOldData(resultHTML);
   const result = JSON.parse(json);
@@ -114,15 +124,16 @@ function generateHTML(json, tag) {
   header.innerText = resultHTML.title;
   elementDiv.appendChild(header);
 
-  if (result.length === 0) {        // If no results
-      const noResultsElement = document.createElement('li');
-      noResultsElement.classList.add('word-item', 'result-display');
-      noResultsElement.innerText = "No results..";
-      elementDiv.appendChild(noResultsElement);
-      resultHTML.appendChild(elementDiv);
-      return;                       // Exit out of the function, if there is no results, 
-                                    // do not do anything else
-  } 
+  if (result.length === 0) {
+    // If no results
+    const noResultsElement = document.createElement("li");
+    noResultsElement.classList.add("word-item", "result-display");
+    noResultsElement.innerText = "No results..";
+    elementDiv.appendChild(noResultsElement);
+    resultHTML.appendChild(elementDiv);
+    return; // Exit out of the function, if there is no results,
+    // do not do anything else
+  }
 
   result.forEach((element) => {
     const newWordElement = document.createElement("li");
@@ -165,9 +176,11 @@ function afterClick() {
   let checkboxes = document.querySelectorAll('input[name="choice"]:checked'); //ARRAY OF ALL THE SELECTED CHECKBOXES
 
   if (checkboxes.length === 0 || inputBox.value.length === 0) {
+    resultsContainer.classList.add("hidden");
     openModal();
   } else {
     // there are some checked checkboxes
+    resultsContainer.classList.remove("hidden");
     runAPI();
   }
 }

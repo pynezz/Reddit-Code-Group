@@ -36,26 +36,9 @@ h1 {
   font-family: "Poppins", sans-serif;
   margin: 1.5rem auto 10rem auto;
   display: inline-block;
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: 600;
-}
-
-.feather {
-  height: 10rem;
-  width: auto;
-  position: absolute;
-}
-
-.f1 {
-  left: 20rem;
-  transform: rotate(-60deg);
-  top: 3.5rem;
-}
-
-.f2 {
-  right: 20rem;
-  transform: rotate(120deg);
-  top: 1rem;
+  display: inline-block;
 }
 
 .input {
@@ -165,4 +148,23 @@ li {
   cursor: pointer;
   border: none;
   background: none;
+}
+
+/*MOBILE*/
+@media (max-width: 900px) {
+  .top-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .tc-words {
+    text-align: center;
+    padding: auto;
+    width: auto;
+  }
+  .input-field {
+    width: auto;
+  }
+  td {
+    display: block;
+  }
 }
