@@ -103,7 +103,7 @@ table {
   padding: 5px;
 }
 
-li {
+ul {
   list-style-type: none;
 }
 
@@ -152,6 +152,12 @@ li {
 
 /*MOBILE*/
 @media (max-width: 900px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+  .tc-words {
+    font-size: 0.8rem;
+  }
   .top-container {
     display: flex;
     flex-direction: column;
@@ -165,6 +171,9 @@ li {
     width: auto;
   }
   td {
+    display: block;
+  }
+  .results-container {
     display: block;
   }
 }
